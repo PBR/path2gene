@@ -210,7 +210,7 @@ def search_pathway(name):
         search=name, core=core)
 
 
-@APP.route('/path/<pathway>')
+@APP.route('/path/<path:pathway>')
 def pathway(pathway):
     """ Show for the given pathways all the genes found to be related.
     """
@@ -226,7 +226,7 @@ def pathway(pathway):
         genes=genes, geneids=geneids)
 
 
-@APP.route('/csv/<pathway>')
+@APP.route('/csv/<path:pathway>')
 def generate_csv(pathway):
     """ Generate a comma separated value file containing all the
     information.

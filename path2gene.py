@@ -233,7 +233,7 @@ def generate_csv(pathway):
     """
     print 'path2gene %s -- %s -- %s' % (datetime.datetime.now(),
         flask.request.remote_addr, flask.request.url)
-    # Regenerate the informations)
+    # Regenerate the informations
     if pathway.endswith('*'):
         genes = get_gene_of_pathway(pathway[:-1])
     else:
@@ -241,7 +241,7 @@ def generate_csv(pathway):
 
     string = 'Gene ID, Gene description, Pathway\n'
     for gene in genes:
-        string = string + "%s, %s, %s" % (gene, genes[gene][0],
+        string = string + "%s, %s, %s\n" % (gene, genes[gene][0],
             genes[gene][1])
     return flask.Response(string, mimetype='application/excel')
 

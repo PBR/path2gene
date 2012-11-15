@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+        <h1>Path2gene<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h1>
+        <p>
+          This tool provides an easy way to find all the genes from the
+          tomato genome annotation related to a specific pathway.
+        </p>
+        <p>
+          For any given pathway name, it will look at what are the
+          pathway available containing this name and provide a link to
+          the page containing the list of genes related to this pathway.
+        </p>
+
+        <form method="POST" action="">
+          {{ form.pathway_name.label }} {{ form.pathway_name(size=30) }}
+          <input type="submit" value="Submit">
+        </form>
+
+        <p>
+            Example: Search for carotenoid
+            <a href="{{url_for('search_pathway', name='carotenoid')}}">
+                carotenoid
+            </a>
+        </p>
+{% endblock %}

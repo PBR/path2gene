@@ -1,0 +1,38 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>{% block title %}{% endblock %} - path2gene</title>
+    
+    <link rel="stylesheet" type="text/css"
+        href="http://flask.pocoo.org/docs/_static/flasky.css" />
+    <link rel="stylesheet" type="text/css"
+        href="http://flask.pocoo.org/docs/_static/pygments.css" />
+    <style type="text/css">
+    table td {
+      vertical-align:top;
+      border-top: 1px solid black;
+    }
+    table tr td,
+    table tr th {
+      border-left: 0;
+      border-right: 0;
+    }
+    </style>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="document">
+      <div class="section" id="intro">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

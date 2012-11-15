@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+
+{% block title %}{{ pathway }}{% endblock %}
+
+{% block content %}
+        <span id="id1"></span>
+        <h1>path2gene<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h1>
+        <h2>Pathway: {{ pathway }}</h2>
+        <p>
+            <a href="{{url_for('index')}}">Home</a> | 
+            <a href="{{url_for('generate_csv', pathway=pathway)}}">Export as csv</a>
+        </p>
+
+    {% if genes %}
+    <ul>
+        <li>{{ genes|length }} genes found</li>
+    </ul>
+    {% endif %}
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Pathway</th>
+        </tr>
+    {% for geneid in geneids %}
+        <tr>
+          <td>
+            <a href="https://www.eu-sol.wur.nl/marker2seq/annotation.do?geneid={{geneid}}"
+            target="_blank">
+              {{ geneid }}
+            </a>
+          </td>
+          {% for info in genes[geneid] %}
+            <td>
+              {{ info }}
+            </td>
+          {% endfor %}
+        </tr>
+    {% else %}
+        <tr>
+            <td>Sorry no results could be found for this pathway.</td>
+        </tr>
+    {% endfor %}
+      <table>
+
+{% endblock %}

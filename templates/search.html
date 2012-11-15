@@ -1,0 +1,51 @@
+{% extends "master.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+        <span id="id1"></span>
+        <h1>path2gene<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h1>
+        <h2>Searching: &quot;{{ search }}&quot;</h2>
+        <p>
+            <a href="{{url_for('index')}}">Home</a>
+        </p>
+
+    {% if data %}
+      <p>
+        Several pathways contained &quot;{{ search }}&quot; in their
+        name choose the pathway of interest.
+      </p>
+      <table>
+        <tr>
+          <th>Name</th>
+        </tr>
+        {% for pathway in core %}
+          <tr>
+            <td> 
+              <a href="{{url_for('pathway', pathway=pathway)}}">
+                {{ pathway }}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+
+        {% for pathway in data %}
+          <tr>
+            <td> 
+              <a href="{{url_for('pathway', pathway=pathway)}}">
+                {{ pathway }}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+      <p>
+        {{data |length}} results found
+      </p>
+       
+    {% else %}
+        <p>
+            Sorry no results could be found for the pathway &quot;{{ search }}&quot;.
+        </p>
+    {% endif %}
+{% endblock %}

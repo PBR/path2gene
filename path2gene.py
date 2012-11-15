@@ -226,7 +226,7 @@ def pathway(pathway):
         genes=genes, geneids=geneids)
 
 
-@APP.route('/csv/<path:pathway>')
+@APP.route('/csv/<path:pathway>.csv')
 def generate_csv(pathway):
     """ Generate a comma separated value file containing all the
     information.
